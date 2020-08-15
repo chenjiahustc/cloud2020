@@ -12,6 +12,7 @@
     <modules>
         <module>cloud-api-common</module>
         <module>cloud-eureka-server6001</module>
+        <module>cloud-config-center-3344</module>
     </modules>
 
     <properties>
