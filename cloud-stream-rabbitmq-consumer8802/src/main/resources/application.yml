@@ -1,0 +1,32 @@
+server:
+  port: 8802
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        input:
+          destination:  studyExchange
+          context-type: application/json
+          binder: defaultRabbit
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:6001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 5
+    instance-id: send-8801.com
+    prefer-ip-address: true
